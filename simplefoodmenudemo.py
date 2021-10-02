@@ -6,7 +6,7 @@ if 'hasFood' not in st.session_state:
     st.session_state.hasFood = 0
 
 
-st.header("Welcome to ABC Simple Food Menu Demo")
+st.header("Welcome to NUR Simple Food Menu Demo")
 
 readme = st.checkbox("readme first")
 
@@ -18,7 +18,7 @@ if readme:
 
     st.write ("For more info, please contact:")
 
-    st.write("<a href='https://www.linkedin.com/in/yong-poh-yu/'>Dr. Yong Poh Yu </a>", unsafe_allow_html=True)
+    st.write("<a href='https://www.linkedin.com/in/nur-ashikin-jamil-2b4876159/'>Nur Ashikin Jamil </a>", unsafe_allow_html=True)
 
 st.write("Choose an option from the radio button on the side bar to continue.")
 
@@ -38,11 +38,11 @@ if option == 'Add a food':
 
             if st.session_state.hasFood==1:
 
-                st.session_state.RBAFoodMenu.addNode(foodName,foodPrice)
+                st.session_state.NURFoodMenu.addNode(foodName,foodPrice)
                 st.write("[{} , RM {}] has been added to the food Menu.".format(foodName, foodPrice))
             
             else:
-                st.session_state.RBAFoodMenu = foodMenu(foodName,foodPrice)
+                st.session_state.NURFoodMenu = foodMenu(foodName,foodPrice)
                 st.write("[{} , RM {}] has been added to the food Menu.".format(foodName, foodPrice))
                 st.session_state.hasFood = 1
 
@@ -57,7 +57,7 @@ elif option == 'Find a food':
 
         foodName = st.text_input("Please enter the food name that you want to search for")
         
-        st.write("The food is in the Food Menu: {}".format(st.session_state.RBAFoodMenu.findNode(foodName)))
+        st.write("The food is in the Food Menu: {}".format(st.session_state.NURFoodMenu.findNode(foodName)))
  
 
     else:
@@ -69,7 +69,7 @@ elif option == 'Get the sorted food list':
 
     if st.session_state.hasFood ==1:
         st.write("The list in the Food Menu:")
-        st.write(pd.DataFrame(st.session_state.RBAFoodMenu.inOrderTraversal(),columns=["Food Name", "Price"]))
+        st.write(pd.DataFrame(st.session_state.NURFoodMenu.inOrderTraversal(),columns=["Food Name", "Price"]))
 
     else:
         st.write("Empty Food Menu.")
@@ -78,4 +78,4 @@ else:
     st.write("The food menu system has been reset.")
 
     st.session_state.hasFood = 0 
-    st.session_state.RBAFoodMenu = []
+    st.session_state.NURFoodMenu = []
